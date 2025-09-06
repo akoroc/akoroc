@@ -96,27 +96,34 @@ export default function SiteNav() {
             Let’s Talk <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
-        <button aria-label="Menu" className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-800/60 bg-slate-900 text-slate-100" onClick={() => setOpen(!open)}>
+        <button
+          aria-label="Menu"
+          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-800/60 bg-slate-900 text-slate-100"
+          onClick={() => setOpen(!open)}
+        >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
-      <motion.div
-        initial={false}
-        animate={{ height: open ? 'auto' : 0, opacity: open ? 1 : 0 }}
-        className="overflow-hidden border-t border-slate-800/60 md:hidden bg-slate-950"
-      >
-        <div className="px-4 py-4 space-y-3">
-          <a href="/#services" onClick={() => setOpen(false)} className={`block ${activeHash === "/#services" ? "text-white underline underline-offset-4" : "text-slate-200"}`}>Services</a>
-          <a href="/#about" onClick={() => setOpen(false)} className={`block ${activeHash === "/#about" ? "text-white underline underline-offset-4" : "text-slate-200"}`}>About</a>
-          <a href="/#process" onClick={() => setOpen(false)} className={`block ${activeHash === "/#process" ? "text-white underline underline-offset-4" : "text-slate-200"}`}>Process</a>
-          <Link href="/services" onClick={() => setOpen(false)} className="block text-slate-200">All Services</Link>
-          <Link href="/blog" onClick={() => setOpen(false)} className="block text-slate-200">Blog</Link>
-          <Link href="/contact" onClick={() => setOpen(false)} className="block text-slate-200">Contact</Link>
-          <div className="flex items-center gap-3 pt-2">
-            <SocialLinks size="sm" />
+
+      {/* Mobile drawer: move classes to wrapper div to avoid TS complaints on motion.div */}
+      <div className="overflow-hidden border-t border-slate-800/60 md:hidden bg-slate-950">
+        <motion.div
+          initial={false}
+          animate={{ height: open ? 'auto' : 0, opacity: open ? 1 : 0 }}
+        >
+          <div className="px-4 py-4 space-y-3">
+            <a href="/#services" onClick={() => setOpen(false)} className={`block ${activeHash === "/#services" ? "text-white underline underline-offset-4" : "text-slate-200"}`}>Services</a>
+            <a href="/#about" onClick={() => setOpen(false)} className={`block ${activeHash === "/#about" ? "text-white underline underline-offset-4" : "text-slate-200"}`}>About</a>
+            <a href="/#process" onClick={() => setOpen(false)} className={`block ${activeHash === "/#process" ? "text-white underline underline-offset-4" : "text-slate-200"}`}>Process</a>
+            <Link href="/services" onClick={() => setOpen(false)} className="block text-slate-200">All Services</Link>
+            <Link href="/blog" onClick={() => setOpen(false)} className="block text-slate-200">Blog</Link>
+            <Link href="/contact" onClick={() => setOpen(false)} className="block text-slate-200">Contact</Link>
+            <div className="flex items-center gap-3 pt-2">
+              <SocialLinks size="sm" />
+            </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </header>
   )
 }
