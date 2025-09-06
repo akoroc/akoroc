@@ -43,3 +43,34 @@ pnpm-debug.log*
 Thumbs.db
 .next
 node_modules
+# deps
+node_modules/
+.pnp/
+.pnp.js
+
+# next.js
+.next/
+out/
+build/
+
+# env
+.env
+.env*.local
+
+# misc
+.DS_Store
+Thumbs.db
+*.tsbuildinfo
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# tools
+.vercel/
+.netlify/
+.vscode/
+.idea/
+*.swp
