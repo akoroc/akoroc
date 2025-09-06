@@ -34,15 +34,17 @@ export default function Hero() {
               <motion.div variants={item}>
                 <Kicker>Full-Spectrum Digital Agency</Kicker>
               </motion.div>
-              <motion.h1
-                variants={item}
-                className="text-4xl md:text-6xl font-semibold tracking-tight text-white"
-              >
-                Powering the{' '}
-                <span className="bg-gradient-to-br from-indigo-400 to-sky-400 bg-clip-text text-transparent">
-                  Digital Future
-                </span>
-              </motion.h1>
+
+              {/* Wrap the animated heading to keep className off motion.* */}
+              <motion.div variants={item}>
+                <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-white">
+                  Powering the{' '}
+                  <span className="bg-gradient-to-br from-indigo-400 to-sky-400 bg-clip-text text-transparent">
+                    Digital Future
+                  </span>
+                </h1>
+              </motion.div>
+
               <motion.div variants={item}>
                 <P className="text-lg">
                   We design, build, and scale modern products and platforms — from brand to backend. Enterprise discipline
